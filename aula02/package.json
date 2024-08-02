@@ -1,0 +1,21 @@
+{
+  "name": "batatinha123",
+  "version": "0.0.1",
+  "description": "qualquer coisa",
+  "main": "index.js",
+  "scripts": {
+    "start": "node --watch index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "exemplo"
+  ],
+  "author": "Antonini, Giulliano",
+  "license": "ISC",
+  "dependencies": {
+    "yargs": "^17.7.2"
+  },
+  "devDependencies": {
+    "dot-env": "^0.0.1"
+  }
+}
