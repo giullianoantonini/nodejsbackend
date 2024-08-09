@@ -1,0 +1,26 @@
+{
+  "name": "api",
+  "version": "0.0.1",
+  "main": "index.js",
+  "scripts": {
+    "start": "ts-node-dev --inspect --transpile-only --ignore-watch node_modules src/index.ts",
+    "build": "rimraf dist && tsc",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "ts.check": "tsc --project tsconfig.json",
+    "add-build": "git add dist"
+  },
+  "author": "Antonini, Giulliano",
+  "license": "ISC",
+  "description": "API em NodeJS com TS",
+  "dependencies": {
+    "express": "^4.19.2"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/node": "^22.1.0",
+    "rimraf": "^6.0.1",
+    "ts-node": "^10.9.2",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.5.4"
+  }
+}
