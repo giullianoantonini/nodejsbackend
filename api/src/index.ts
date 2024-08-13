@@ -38,8 +38,9 @@ app.get("/departamentos/:id", (req: Request, res: Response): void => {
 
 app.get("/clientes", (req: Request, res: Response): void => {
   const html: string =
-    '<link href="estilo.css" rel="stylesheet"><h1>Clientes</h1>';
-});
+    '<link href="/css/estilo.css" rel="stylesheet"><h1>Clientes</h1>';
+  res.send(html)
+  });
 
 app.listen(porta, () =>
   console.log(`Servidor escutando na porta http://localhost:${porta}`)
