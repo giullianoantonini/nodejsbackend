@@ -1,0 +1,38 @@
+{
+	"info": {
+		"_postman_id": "760ea566-58f5-4093-a849-90237c91ec89",
+		"name": "Node JS - TargetTrust",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "37692631"
+	},
+	"item": [
+		{
+			"name": "departamentos",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nome\": \"{{$randomDepartment}}\",\r\n    \"sigla\": \"CNT\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3030/departamentos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3030",
+					"path": [
+						"departamentos"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
