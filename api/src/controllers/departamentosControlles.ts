@@ -30,3 +30,32 @@ export const insereDepartamentos = async (req: Request, res: Response) => {
     });
   }
 };
+
+export const deletaDepartamentos = async (req: Request, res: Response) => {
+  const { id } = req.params;
+
+  try {
+    const [result] = await conexao.execute(
+      "DELETE FROM DEPARTAMENTOS WHERE id_departamento = ?",
+      [id]
+    );
+    if ("affectedRows" in result) {
+      if (result.affectedRows === 0) {
+        res.status(404).json({
+          message: "Departamento não encontrado",
+        });
+      } else {
+        res.sendStatus(204);
+      }
+    } else {
+      res.status(500).json({
+        message: "Erro na exclusão do departamento",
+      });
+    }
+  } catch (e) {
+    console.error(e);
+    res
+      .status(500)
+      .json({ message: "Erro na exclusão do departamento", error: e.message });
+  }
+};
