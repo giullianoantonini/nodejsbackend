@@ -55,6 +55,7 @@ export const deletaDepartamentos = async (req: Request, res: Response) => {
       return;
     }
   } catch (e) {
+    console.log(e);
     let message = "";
     switch (e.code) {
       case "ER_ROW_IS_REFERENCED_2":
@@ -66,9 +67,7 @@ export const deletaDepartamentos = async (req: Request, res: Response) => {
     }
 
     res.status(500).json({
-      message: "Exclusão realizada",
-      id,
+      message,
     });
-    return;
   }
 };
