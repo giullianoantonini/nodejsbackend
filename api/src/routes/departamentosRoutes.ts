@@ -3,6 +3,7 @@ import {
   insereDepartamentos,
   listaDepartamentos,
   deletaDepartamentos,
+  atualizaDepartamentos
 } from "../controllers/departamentosControlles";
 
 import validaDepartamentos from "../middlewares/validaDepartamentos";
@@ -14,5 +15,7 @@ router.get("/departamentos", listaDepartamentos);
 router.post("/departamentos", validaDepartamentos, insereDepartamentos);
 
 router.delete("/departamentos/", deletaDepartamentos);
+
+router.put("/departamentos/:id", atualizaDepartamentos);
 
 export default router;
