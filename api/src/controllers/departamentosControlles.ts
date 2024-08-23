@@ -1,10 +1,26 @@
 import { Request, Response } from "express";
 import conexao from "../services/connection";
-import { ResultSetHeader } from "mysql2";
+import { ResultSetHeader, RowDataPacket } from "mysql2";
 
 export const listaDepartamentos = async (req: Request, res: Response) => {
   // Executar uma query com o banco
   const [rows] = await conexao.query("SELECT * FROM DEPARTAMENTOS");
+
+  res.json(rows);
+};
+
+export const listaDepartamentoPeloId = async (req: Request, res: Response) => {
+  // Executar uma query com o banco
+  const { id } = req.params;
+  const [rows] = await conexao.query<RowDataPacket[]>(
+    "SELECT * FROM DEPARTAMENTOS WHERE id_departamento = ?",
+    [id]
+  );
+
+  if (rows.length === 0) {
+    res.status(404).json(rows);
+    return;
+  }
 
   res.json(rows);
 };
