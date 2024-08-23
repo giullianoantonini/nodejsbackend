@@ -17,7 +17,7 @@ router.get("/departamentos/:id", listaDepartamentoPeloId);
 
 router.post("/departamentos", validaDepartamentos, insereDepartamentos);
 
-router.delete("/departamentos/", deletaDepartamentos);
+router.delete("/departamentos", deletaDepartamentos);
 
 router.put("/departamentos/:id", validaDepartamentos, atualizaDepartamentos);
 

@@ -8,8 +8,9 @@ const departamentosControlles_1 = require("../controllers/departamentosControlle
 const validaDepartamentos_1 = __importDefault(require("../middlewares/validaDepartamentos"));
 const router = (0, express_1.Router)();
 router.get("/departamentos", departamentosControlles_1.listaDepartamentos);
+router.get("/departamentos/:id", departamentosControlles_1.listaDepartamentoPeloId);
 router.post("/departamentos", validaDepartamentos_1.default, departamentosControlles_1.insereDepartamentos);
-router.delete("/departamentos/", departamentosControlles_1.deletaDepartamentos);
-router.put("/departamentos/:id", departamentosControlles_1.atualizaDepartamentos);
+router.delete("/departamentos", departamentosControlles_1.deletaDepartamentos);
+router.put("/departamentos/:id", validaDepartamentos_1.default, departamentosControlles_1.atualizaDepartamentos);
 exports.default = router;
 //# sourceMappingURL=departamentosRoutes.js.map

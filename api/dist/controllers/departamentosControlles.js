@@ -12,7 +12,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.atualizaDepartamentos = exports.deletaDepartamentos = exports.insereDepartamentos = exports.listaDepartamentos = void 0;
+exports.atualizaDepartamentos = exports.deletaDepartamentos = exports.insereDepartamentos = exports.listaDepartamentoPeloId = exports.listaDepartamentos = void 0;
 const connection_1 = __importDefault(require("../services/connection"));
 const listaDepartamentos = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     // Executar uma query com o banco
@@ -20,6 +20,17 @@ const listaDepartamentos = (req, res) => __awaiter(void 0, void 0, void 0, funct
     res.json(rows);
 });
 exports.listaDepartamentos = listaDepartamentos;
+const listaDepartamentoPeloId = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    // Executar uma query com o banco
+    const { id } = req.params;
+    const [rows] = yield connection_1.default.query("SELECT * FROM DEPARTAMENTOS WHERE id_departamento = ?", [id]);
+    if (rows.length === 0) {
+        res.status(404).json(rows);
+        return;
+    }
+    res.json(rows);
+});
+exports.listaDepartamentoPeloId = listaDepartamentoPeloId;
 //TO DO
 // PRECISAMOS VALIDAR QUE A APP NÃO QUEBRE SE OS DADOS VIEREM REPETIDOS
 // PRECISAMOS VALIDAR QUE OS DADOS ESTÃO SENDO ENVIADOS (NOME E SIGLA OBRIGATÓRIOS)
